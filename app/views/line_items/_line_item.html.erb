@@ -1,0 +1,23 @@
+
+      <li class="items even">
+        
+       <div class="infoWrap"> 
+         <div class="cartSection">
+        
+        <img src="<%= line_item.product.image.url %>" alt="" class="itemImg" />
+          <p class="itemNumber">Item Id: <%= line_item.product.id %></p>
+          <h3><%= line_item.product.title %></h3>
+        
+           <p> <%= line_item.quantity %> x <%= number_to_currency(line_item.product.price) %></p>
+        
+        </div>  
+    
+        
+        <div class="prodTotal cartSection">
+          <p><%= number_to_currency(line_item.total_price) %></p>
+        </div>
+              <div class="cartSection removeWrap">
+           <%= link_to 'Remove Item', line_item, method: :delete, :class => "remove", :style => "margin:5px;",data: { confirm: 'Are you sure?' } %>
+          </div>
+      </div>
+      </li>

@@ -1,0 +1,26 @@
+  <div class="wrap">
+
+  <div class="heading">
+     <% if @cart.line_items.empty? %><br/>
+<h1> Your Cart is Empty! Get back to the <a href="<%= store_index_path %>" >HOME PAGE</a></h1>
+
+    <% else %>
+    <h1>My Cart</h1>
+
+    <%= link_to "Continue shopping", store_index_path, :class => 'continue' %>
+  </div>
+  <div class="cart">
+  	<ul class="cartWrap">
+<%= render(cart.line_items) %>
+     </ul>
+  <div class="subtotal cf">
+    <ul style="list-style-type: none;">
+       <li class="totalRow final"><span class="label">Total</span><span class="value"><%= number_to_currency(cart.total_price) %></span></li>
+      <li class="totalRow"><%= link_to "Checkout", new_order_path, method: :get, :class => 'login' %><%= link_to 'Empty cart', cart, method: :delete, :class => 'login',
+                 data: { confirm: 'Are you sure?' } %></li>
+      <li class="totalRow"</li>
+
+    </ul>
+  </div>
+</div>
+<% end %>

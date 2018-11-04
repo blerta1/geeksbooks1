@@ -1,0 +1,106 @@
+// Place all the styles related to the Store controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.store{
+
+	h1{
+	margin: 0;
+	padding-bottom: 0.5em;
+	font: 150% sans-serif;
+	color:#226;
+	border-bottom: 3px dotted #379a98;
+	}
+	/* An entry in the store catalog */
+ .entry {
+ overflow: auto;
+ margin-top: 1em;
+ border-bottom: 1px dotted #379a98;
+ min-height: 100px;
+
+ img {
+ width: 80px;
+ margin-right: 5px;
+ margin-bottom: 5px;
+ margin-top:20px;
+ position: absolute;
+ }
+h3{
+  margin-bottom: 70px;
+}
+ h3 a {
+ position:absolute;
+ font-size: 100%;
+ font-family: sans-serif;
+ margin-left: 100px;
+ margin-top: 0;
+ 
+ color: #227;
+ }
+p{
+
+  max-width:700px;
+}
+ p, div.price_line {
+ margin-left: 100px;
+ margin-top: 0.5em;
+ margin-bottom: 0.8em;
+ 
+ form, div {
+     display: inline;
+ }
+ }
+
+ .price {
+ color: #44a;
+ font-weight: bold;
+ margin-right: 3em;
+ }
+ }
+ }
+
+.login {
+a:hover{
+  text-decoration:none;
+}
+
+margin-top:30px;
+  -moz-box-shadow:inset 0px 1px 0px 0px #a4e271;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #a4e271;
+  box-shadow:inset 0px 1px 0px 0px #a4e271;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05,#3fb0ac), color-stop(1, #173e43));
+  background:-moz-linear-gradient(top,#3fb0ac 5%, #173e43 100%);
+  background:-webkit-linear-gradient(top,#3fb0ac 5%, #173e43 100%);
+  background:-o-linear-gradient(top,#3fb0ac 5%, #173e43 100%);
+  background:-ms-linear-gradient(top,#3fb0ac 5%, #173e43 100%);
+  background:linear-gradient(to bottom,#3fb0ac 5%, #173e43 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#89c403', endColorstr='#173e43',GradientType=0);
+  background-color:#89c403;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #173e43;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #528009;
+}
+.login:hover {
+
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77a809), color-stop(1, #89c403));
+  background:-moz-linear-gradient(top, #77a809 5%, #89c403 100%);
+  background:-webkit-linear-gradient(top, #77a809 5%, #89c403 100%);
+  background:-o-linear-gradient(top, #77a809 5%, #89c403 100%);
+  background:-ms-linear-gradient(top, #77a809 5%, #89c403 100%);
+  background:linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77a809', endColorstr='#89c403',GradientType=0);
+  background-color:#77a809;
+}
+.login:active {
+  position:relative;
+  top:1px;
+}

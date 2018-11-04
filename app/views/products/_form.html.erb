@@ -1,0 +1,49 @@
+<div class="depot_form">
+<%= form_for @product, :html => {:multipart => true} do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+ <legend>Enter Your Book's Details</legend>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, rows: 10, cols: 40 %>
+  </div>
+  <div class="field">
+     <%= form.label :category %>
+  <%= select_tag(:category_id, options_for_select(@categories || Category.all.map { |c| [ c.name, c.id ] }), :prompt => "Select one!") %>
+
+ </div>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+  <div class="field">
+    <%= form.label :pdf %>
+    <%= form.file_field :pdf %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Ready To Sell", :class => "btn btn-primary" %>
+  </div>
+</fieldset>
+<% end %>
+</div>

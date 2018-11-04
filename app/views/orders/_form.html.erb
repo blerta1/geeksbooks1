@@ -1,0 +1,48 @@
+ 
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+  <div class="field">
+    <%= form.label :name , :class =>"control-label col-sm-2" %>
+   <%= form.text_field :name, :value => session[:user_name] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address, rows: 3, cols: 40 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+  
+    <%= form.text_field :email, :value => session[:email] %>
+  </div>
+
+  
+<%= form_tag orders_path do %>
+   
+   <script 
+   class='stripe-button' 
+   Stripe.setPublishableKey('PUBLISHABLE_KEY');
+   src="https://checkout.stripe.com/checkout.js" 
+   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+   data-amount=<%= @cart.total_price * 100 %> 
+   data-description="Geeks ORDER" >
+   </script>
+ <% end %>
+  
+
+<% end %>
+
+</div>
+</form>

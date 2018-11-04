@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Books Online Store</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+   <script type="text/javascript">
+    
+     $(document).on("click",".login",function(){
+       
+  $("#buy").text("+");
+});
+   </script>
+  </head>
+  <body>
+    <header>
+    <nav class="sitetop">
+      <div class="container sitetop__container row">
+        <div class="col-sm-4 text-center">
+            
+            <a href="#" class="social"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+        </div>
+    <ul class="sitetop__links">
+      <% if !session[:user_id] %>
+
+   <%= link_to  ('LOGIN'), login_path,  method: :new, :class =>"sitetop__link",notice: "Log in Please!" %>
+     <%= link_to ('SIGN UP'), register_path,  method: :new, :class =>"sitetop__link",alert: "Fill in Please!" %>
+
+ <% end %>
+  <% if session[:user_id] %>
+  <i class="fa fa-user" aria-hidden="true"></i>
+  <%= link_to (""+session[:user_name]), admin_path, :class => "sitetop__link" %>
+  
+ 
+
+ <%= link_to 'LOGOUT', logout_path, :class => "sitetop__link", method: :delete %>
+ <% end %>
+     
+    </ul>
+  </div>
+</nav>
+
+ 
+    
+<!--====================== NAVBAR MENU START===================-->
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="pull-left navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+         <span class="icon-bar"></span>                        
+        </button>
+         <a class="navbar-brand" href="/"> Geek's B<i class="fa fa-bullseye" style="color:white;font-size:20px;"></i><i class="fa fa-bullseye" style="color:white;font-size:20px;"></i>KS</a>
+    </div>
+   
+    
+ 
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar">
+         <li><%= link_to 'HOME', store_index_path %></li>
+         <li class="dropdown">
+   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CATEGORIES <span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+       <li><a href="/categories/2">INFORMATICS</a></li>
+       <li><a href="/categories/1">TIC</a></li>
+      
+       
+    </ul>
+</li>
+          <li><%= link_to 'CONTACT', store_index_path %></li>
+          
+
+          <% if session[:user_id] && session[:role]=="admin" %>
+   
+  <li><%= link_to 'ORDERS', orders_path %></li>
+  <li><%= link_to 'ALL THE BOOKS', products_path %></li>
+  <li><%= link_to 'USERS', users_path %></li>
+  
+  <% elsif session[:user_id] && session[:role]!="admin"  %>
+  
+  <li><%= link_to 'MY BOOKS', products_path %></li>
+ 
+ <% end %>
+         
+        </ul>
+<%= form_tag(search_results_path, :method => "get", :class=>"navbar-form navbar-right") do %>
+
+            
+         
+          <span class="cart-heart"  "> 
+           
+           <% if @cart %> 
+                    
+              <%= link_to cart_path(@cart) do %>
+              <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              <% end %><span id="buy" style="color:white;"><%= @cart.total_products %></span>
+             <% end %>
+          
+         </span>  <% end %>
+    </div>
+  </div>
+
+</nav></header>
+ <div class="container-fluid" >
+ 
+
+  
+
+ <div class="wrap-search">
+   <div class="search">
+    <%= form_tag(search_results_path, :method => "get") do %>
+      <%= text_field_tag :search_keywords, params[:search_keywords], placeholder: "Search Books", class: "searchTerm" %>
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+     <% end %>
+   </div>
+</div>
+ 
+ <div class='<%= controller.controller_name %>' class="row" >
+ 
+  <div class="col-sm-12 main"  >
+<%= yield %>
+</div>
+
+ </div>
+
+
+ 
+
+ <footer class="footer">
+
+ <span>© Copyright Geeks Books</span>
+
+ </footer></div>
+</body>
+</html>

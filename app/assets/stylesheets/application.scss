@@ -1,0 +1,300 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require_tree .
+ *= require_self
+ *
+ */
+@import "bootstrap";
+body, body > p, body > ol, body > ul, body >td { margin: 0px !important}
+body {
+  background-color: white;
+  margin:0;
+}
+
+.sitetop {
+  width:100%;
+ a{
+ color:#379a98;
+ }
+  font-size: 0.95em;
+  height: 25px;
+  line-height: 25px;
+  background:black;
+  color: white;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__links {
+    flex: 1;
+    text-align: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+  color:white;
+    display: inline-block;
+    margin: 0;
+    &:after { content: ' | '; }
+
+    &:last-of-type {
+      &:after { content: none; }
+    }
+  }
+
+  &__link-item {
+    color: inherit;
+  }
+
+  html.ie9 &, html.lt-ie9 {
+    &__container {
+      display: table;
+    }
+
+    &__language {
+      display: table-cell;
+      text-align: left;
+    }
+
+    &__links {
+      display: table-cell;
+    }
+  }
+
+ 
+}
+.main {
+  margin-top: 30px;
+  margin-bottom:20px;
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+
+.search {
+  width: 100%;
+  position: relative;
+  margin:0 auto;
+}
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  border:none;
+  border-bottom: 1px solid grey;
+  padding: 5px;
+  height: 36px;
+  background:transparent;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: black;
+}
+
+.searchButton {
+  position: absolute;  
+  
+  width: 40px;
+  height: 36px;
+  border: 1px solid transparent;
+  
+  text-align: center;
+  color: grey;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap-search{
+ 
+  position: absolute;
+  
+ right:0;
+  transform: translate(-20%, -50%);
+}
+
+.navbar-brand {
+    color: #fff !important;
+    padding-top: 20px;
+    font-size: 25px;
+    line-height: 20px;
+    top:20px;
+    z-index: 11;
+    margin: 0 auto;
+    font-family: Montserrat, sans-serif;
+   
+}
+.navbar-inverse {
+width:100%;
+
+    background-color:  #173e43;
+    border-color: transparent;
+}
+.navbar {
+
+    position: relative;
+    min-height: 60px;
+    font-family: Montserrat, sans-serif;
+    border: 0px solid transparent;
+    border-radius:0px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border: 0px solid transparent;
+}
+.navbar-inverse .navbar-nav > li > a {
+    padding-top: 20px;
+    color: #fff;
+    border: 0px solid transparent;
+   
+}
+.navbar-inverse .navbar-nav > li:hover {
+    background:black;
+    color: #fff;
+   
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 15px 11px;
+}
+
+.form-control{
+
+    border-color:#fff;
+    border-radius:0px;
+    background-color:white;
+}
+.btn-default-1 {
+    color: #fff;
+   
+    border-color: #fff;
+    border-radius: 0px;
+}
+.cart-heart a{
+    display:inline-block;
+    color:#fff;
+    font-size:20px;
+    padding:5px;
+}
+
+ #notice {
+ color: #000 !important;
+ border: 2px solid #173e43;
+ border-radius:10px;
+ padding: 1em;
+ margin-bottom: 2em;
+ background-color: #ff9966;
+ font: bold smaller sans-serif;
+ }
+
+ #notice:empty {
+ display: none
+ }
+
+
+ 
+ 
+ 
+ .depot_form {
+ max-width:400px;
+ margin: 0 auto;
+  border: 0px solid transparent;
+  border-radius:15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+fieldset {
+background: #efe;
+legend {
+color: #dfd;
+background: #379a98;
+font-family: sans-serif;
+padding: 0.2em 1em;
+}
+div {
+margin-bottom: 0.7em;
+}
+}
+form {
+display:block;
+label {
+width: 5em;
+float: left;
+text-align: right;
+padding-top: 0.2em;
+margin: 0 auto;
+display: block;
+}
+select, textarea, input {
+margin-left: 0.5em;
+border-radius:5px;
+}
+.submit {
+border-radius:5px;
+
+margin-left: 30em;
+}
+br {
+display: none
+}
+}
+}
+ 
+ @media all and (max-width: 800px) {
+ #columns {
+ flex-direction: column-reverse;
+ }
+
+ @media all and (max-width: 500px) {
+ #banner {
+ height: 1em;
+ }
+ 
+ }
+
+ #banner .title {
+ display: none;
+ }
+ }
+ footer {
+   background-color: #173e43;
+    height:30px;
+    clear:both;
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    
+    span{
+    display:block;
+    text-align:center;
+    size:30px;
+    color:#dddfd4;
+    border-top:2px solid #141;
+    }
+  }
+   @media only screen and (max-width: 600px) {
+     #cart{
+     display:none;
+ }
+}
+
+
